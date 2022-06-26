@@ -23,6 +23,7 @@ function App() {
   }
 
   function generate_tripcode(password, salt) {
+    // Roughly the 8chan-style "secure tripcode" algorithm
     return encryptDesCbcPkcs7Padding(password,
       Base64.stringify(sha1(password + salt)).substring(0, 4)).toString().substr(-10)
   }
