@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tripode-playground/static/css/main.073c9b0a.css",
-    "main.js": "/tripode-playground/static/js/main.7c024c24.js",
-    "static/js/787.3e56b04c.chunk.js": "/tripode-playground/static/js/787.3e56b04c.chunk.js",
-    "static/media/logo.svg": "/tripode-playground/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/tripode-playground/index.html",
-    "main.073c9b0a.css.map": "/tripode-playground/static/css/main.073c9b0a.css.map",
-    "main.7c024c24.js.map": "/tripode-playground/static/js/main.7c024c24.js.map",
-    "787.3e56b04c.chunk.js.map": "/tripode-playground/static/js/787.3e56b04c.chunk.js.map"
+    "main.css": "/tripcode-playground/static/css/main.073c9b0a.css",
+    "main.js": "/tripcode-playground/static/js/main.abe883ab.js",
+    "static/js/787.3e56b04c.chunk.js": "/tripcode-playground/static/js/787.3e56b04c.chunk.js",
+    "static/media/logo.svg": "/tripcode-playground/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/tripcode-playground/index.html",
+    "main.073c9b0a.css.map": "/tripcode-playground/static/css/main.073c9b0a.css.map",
+    "main.abe883ab.js.map": "/tripcode-playground/static/js/main.abe883ab.js.map",
+    "787.3e56b04c.chunk.js.map": "/tripcode-playground/static/js/787.3e56b04c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.7c024c24.js"
+    "static/js/main.abe883ab.js"
   ]
 }
