@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={{display: 'flex', flexDirection: 'column', width: '725px'}}>
+    <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
       <div>
         <TextField sx={{m: 4, width: '16ch'}} name="salt" label="Secret Salt" value={salt} onChange={e => setSalt(e.target.value)}/>
       </div>
