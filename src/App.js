@@ -40,30 +40,30 @@ function App() {
     <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
       <div>
         <TextField sx={{m: 4, width: tripcodeWidth}} name="salt" label="Secret Salt" value={salt}
-                   onChange={e => setSalt(e.target.value)}/>
+                   onChange={e => setSalt(e.target.value)} aria-selected focused/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip1" label="Trip Password 1" value={trip1}
                                       onChange={e => setTrip1(e.target.value)}/>
         =>
-        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass1 + Salt" value={trip1 + salt}/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1"
+        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass1 + Salt" value={trip1 + salt} color="warning"/>
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1" color="warning"
                                    value={generate_tripcode(trip1, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip2" label="Trip Password 2" value={trip2}
                                       onChange={e => setTrip2(e.target.value)}/>
         =>
-        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass2 + Salt" value={trip2 + salt}/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2"
+        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass2 + Salt" value={trip2 + salt} color="warning"/>
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2" color="warning"
                                    value={generate_tripcode(trip2, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip3" label="Trip Password 3" value={trip3}
                                       onChange={e => setTrip3(e.target.value)}/>
         =>
-        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass3 + Salt" value={trip3 + salt}/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3"
+        <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass3 + Salt" value={trip3 + salt} color="warning"/>
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3" color="warning"
                                    value={generate_tripcode(trip3, salt)}/>
       </div>
     </div>
