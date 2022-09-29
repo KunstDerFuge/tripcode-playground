@@ -47,7 +47,7 @@ function App() {
                                       onChange={e => setTrip1(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass1 + Salt" value={trip1 + salt}/>
-        =>&nbsp;&nbsp;!!<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1"
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1"
                                    value={generate_tripcode(trip1, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
@@ -55,7 +55,7 @@ function App() {
                                       onChange={e => setTrip2(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass2 + Salt" value={trip2 + salt}/>
-        =>&nbsp;&nbsp;!!<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2"
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2"
                                    value={generate_tripcode(trip2, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
@@ -63,7 +63,7 @@ function App() {
                                       onChange={e => setTrip3(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass3 + Salt" value={trip3 + salt}/>
-        =>&nbsp;&nbsp;!!<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3"
+        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3"
                                    value={generate_tripcode(trip3, salt)}/>
       </div>
     </div>
