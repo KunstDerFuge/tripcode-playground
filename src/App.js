@@ -13,8 +13,8 @@ function App() {
   const [trip2, setTrip2] = React.useState('pass2')
   const [trip3, setTrip3] = React.useState('pass3')
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const isSmall = useMediaQuery(theme.breakpoints.down('xs'))
+  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery('(max-width:620px)')
   const passWidth = isMobile ? '12ch' : '16ch'
   const tripSaltWidth = isMobile ? '16ch' : '18ch'
   const tripcodeWidth = isMobile ? '13ch' : '16ch'
