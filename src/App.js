@@ -19,6 +19,8 @@ function App() {
   const tripSaltWidth = isMobile ? '16ch' : '18ch'
   const tripcodeWidth = isMobile ? '13ch' : '16ch'
 
+  const saltRef = React.useRef(null)
+
   // I am so tired this function is just copypasted from StackOverflow
   // https://stackoverflow.com/a/37468518
   function encryptDesCbcPkcs7Padding(message, key) {
@@ -36,35 +38,42 @@ function App() {
     return hashed.substring(hashed.length - 10) // Return last 10 chars
   }
 
+  React.useEffect(() => {
+    // On first load, if not on mobile, select the salt textbox
+    setTimeout(() => {
+      !isMobile && saltRef.current.focus()
+    }, 550)
+  }, [])
+
   return (
     <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
       <div>
-        <TextField sx={{m: 4, width: tripcodeWidth}} name="salt" label="Secret Salt" value={salt}
-                   onChange={e => setSalt(e.target.value)} aria-selected focused/>
+        <TextField inputRef={saltRef} sx={{m: 4, width: tripcodeWidth}} name="salt" label="Secret Salt" value={salt}
+                   onChange={e => setSalt(e.target.value)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip1" label="Trip Password 1" value={trip1}
                                       onChange={e => setTrip1(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass1 + Salt" value={trip1 + salt} color="warning"/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1" color="warning"
-                                   value={generate_tripcode(trip1, salt)}/>
+        =>{!isMobile && '  !!'}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 1" color="warning"
+                                          value={generate_tripcode(trip1, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip2" label="Trip Password 2" value={trip2}
                                       onChange={e => setTrip2(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass2 + Salt" value={trip2 + salt} color="warning"/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2" color="warning"
-                                   value={generate_tripcode(trip2, salt)}/>
+        =>{!isMobile && '  !!'}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 2" color="warning"
+                                          value={generate_tripcode(trip2, salt)}/>
       </div>
       <div style={{display: 'flex', alignItems: 'center', alignSelf: 'center'}}>
         {!isMobile && '##'}<TextField sx={{m: 1, width: passWidth}} name="trip3" label="Trip Password 3" value={trip3}
                                       onChange={e => setTrip3(e.target.value)}/>
         =>
         <TextField sx={{m: 1, width: tripSaltWidth}} label="Pass3 + Salt" value={trip3 + salt} color="warning"/>
-        =>{!isMobile && "  !!"}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3" color="warning"
-                                   value={generate_tripcode(trip3, salt)}/>
+        =>{!isMobile && '  !!'}<TextField sx={{m: 1, width: tripcodeWidth}} label="Tripcode 3" color="warning"
+                                          value={generate_tripcode(trip3, salt)}/>
       </div>
     </div>
   )
