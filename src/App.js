@@ -66,7 +66,7 @@ function App() {
     // On first load, if not on mobile, select the salt textbox
     if (!isMobile && isContentVisible) {
       setTimeout(() => {
-        saltRef.current.focus()
+        isContentVisible && saltRef.current.focus()
       }, 1500)
     }
   }, [isContentVisible])
