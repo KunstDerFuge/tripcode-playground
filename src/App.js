@@ -64,11 +64,8 @@ function App() {
 
   React.useEffect(() => {
     // On first load, if not on mobile, select the salt textbox
-    console.log('IsContentVisible:', isContentVisible)
-    console.log(saltRef.current)
     if (!isMobile && isContentVisible) {
       setTimeout(() => {
-        console.log('Setting focus!')
         saltRef.current.focus()
       }, 1500)
     }
