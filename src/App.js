@@ -20,6 +20,7 @@ function App() {
   const tripcodeWidth = isMobile ? '13ch' : '16ch'
 
   const saltRef = React.useRef(null)
+  const isContentVisible = useOnScreen(saltRef)
 
   // I am so tired this function is just copypasted from StackOverflow
   // https://stackoverflow.com/a/37468518
@@ -31,6 +32,29 @@ function App() {
     return encrypted//.toString(CryptoJS.enc.Utf8);
   }
 
+  // Good artists borrow; great artists steal
+  // https://stackoverflow.com/a/67826055
+  function useOnScreen(ref) {
+    const [isOnScreen, setIsOnScreen] = React.useState(false)
+    const observerRef = React.useRef(null)
+
+    React.useEffect(() => {
+      observerRef.current = new IntersectionObserver(([entry]) =>
+        setIsOnScreen(entry.isIntersecting)
+      )
+    }, [])
+
+    React.useEffect(() => {
+      observerRef.current.observe(ref.current)
+
+      return () => {
+        observerRef.current.disconnect()
+      }
+    }, [ref])
+
+    return isOnScreen
+  }
+
   function generate_tripcode(password, salt) {
     // Roughly the 8chan-style "secure tripcode" algorithm
     const hashed = encryptDesCbcPkcs7Padding(password,
@@ -40,10 +64,15 @@ function App() {
 
   React.useEffect(() => {
     // On first load, if not on mobile, select the salt textbox
-    setTimeout(() => {
-      !isMobile && saltRef.current.focus()
-    }, 550)
-  }, [])
+    console.log('IsContentVisible:', isContentVisible)
+    console.log(saltRef.current)
+    if (!isMobile && isContentVisible) {
+      setTimeout(() => {
+        console.log('Setting focus!')
+        saltRef.current.focus()
+      }, 1500)
+    }
+  }, [isContentVisible])
 
   return (
     <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
